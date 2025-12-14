@@ -46,7 +46,7 @@ interface AdminManagementPageProps {
   onBack: () => void;
 }
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://capsproject-production.up.railway.app/api';
 
 export function AdminManagementPage({ user, onBack }: AdminManagementPageProps) {
   const { t, theme } = useThemeLanguage(); 
@@ -571,4 +571,5 @@ export function AdminManagementPage({ user, onBack }: AdminManagementPageProps) 
       </div>
     </div>
   );
+
 }
