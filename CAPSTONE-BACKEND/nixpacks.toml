@@ -1,0 +1,16 @@
+# nixpacks.toml
+
+# Gabungkan provider Node.js dan Python
+providers = ["node", "python"]
+
+# Install dependency Python
+[phases.install]
+cmds = [
+    "npm install",
+    "pip install -r ../ML/requirements.txt" 
+]
+
+# Pastikan folder ML ikut ter-copy (jika folder ML ada di luar folder backend)
+# *Railway biasanya hanya meng-copy folder root service, jadi triknya:
+# Pindahkan folder ML ke DALAM folder CAPSTONE-BACKEND sebelum push,
+# ATAU sesuaikan path di kode spawn kamu.
