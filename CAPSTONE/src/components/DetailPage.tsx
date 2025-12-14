@@ -18,7 +18,7 @@ interface DetailPageProps {
   onBack: () => void;
 }
 
-const API_URL = 'https://capsproject-production.up.railway.app';
+const API_URL = 'https://capsproject-production.up.railway.app/api';
 
 export function DetailPage({ leadId, user, onBack }: DetailPageProps) {
   const { t, language, theme } = useThemeLanguage();
