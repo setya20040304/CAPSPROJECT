@@ -7,9 +7,9 @@ const init = async () => {
     port: process.env.PORT || 5000,
     host: '0.0.0.0', // 🔥 WAJIB DI RAILWAY
     routes: {
-      cors: {
+    cors: {
         origin: [
-          'https://capsproject-7cseyhavr-muhammad-setya-adjies-projects.vercel.app'
+          'https://inspiring-generosity-production.up.railway.app' 
         ],
         credentials: true,
         additionalHeaders: ['cache-control', 'x-requested-with', 'authorization'],
@@ -36,3 +36,4 @@ process.on('unhandledRejection', (err) => {
 });
 
 init();
+
