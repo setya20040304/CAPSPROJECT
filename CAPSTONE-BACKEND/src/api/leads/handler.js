@@ -342,11 +342,15 @@ const updateLeadNotesHandler = async (request, h) => {
  */
 const refreshLeadsWithMLHandler = async (request, h) => {
   try {
-    const scriptPath = path.resolve(__dirname, '../../../../ML/hitung_skor_nasabah.py');
-    const pythonCommand = 'C:\\Users\\Ferdinand\\Downloads\\Compressed\\Predictive-Lead-Scoring-Portal-for-Banking-Sales-UpdateBackend\\ML\\venv\\Scripts\\python.exe';
+    const scriptPath = path.resolve(process.cwd(), 'ML', 'hitung_skor_nasabah.py');
+    
+    const pythonCommand = 'python3'; 
+
+    console.log(`Running Python Script at: ${scriptPath}`); // Debugging log
 
     const runPython = () =>
       new Promise((resolve, reject) => {
+        
         exec(`${pythonCommand} "${scriptPath}"`, (error, stdout, stderr) => {
           if (error) {
             console.error('Python Error:', stderr || error.message);
@@ -362,7 +366,7 @@ const refreshLeadsWithMLHandler = async (request, h) => {
 
   } catch (error) {
     console.error('refreshLeadsWithMLHandler Error:', error);
-    return h.response({ message: 'Gagal refresh skor ML' }).code(500);
+    return h.response({ message: 'Gagal refresh skor ML', details: error.message }).code(500);
   }
 };
 
