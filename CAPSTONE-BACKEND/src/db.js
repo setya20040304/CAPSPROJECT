@@ -1,13 +1,11 @@
-// src/db.js
 const { Pool } = require('pg');
+require('dotenv').config(); // Pastikan install dotenv jika belum
 
 const pool = new Pool({
-  host: 'postgres.railway.internal',
-  port: 5432,
-  user: 'postgres',
-  password: 'cwRvXKamigJLbDkVxMrMUHhWlQAQxpnU',
-  database: 'railway',
+  connectionString: process.env.DATABASE_URL, 
+  ssl: {
+    rejectUnauthorized: false, // Penting untuk koneksi SSL di Railway
+  },
 });
 
 module.exports = pool;
-
