@@ -14,7 +14,7 @@ interface LoginPageProps {
   onBack: () => void; // <--- Tambahkan ini
 }
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://capsproject-production.up.railway.app';
 
 // 2. Destructure onBack dari props
 export function LoginPage({ onLogin, onBack }: LoginPageProps) {
