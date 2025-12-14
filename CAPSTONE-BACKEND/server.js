@@ -2,17 +2,24 @@
 
 const Hapi = require('@hapi/hapi');
 
+// CAPSTONE-BACKEND/server.js
+
 const init = async () => {
   const server = Hapi.server({
-    port: process.env.PORT || 5000,
-    host: process.env.HOST || '0.0.0.0',
+    // GANTI JADI INI (PENTING!):
+    port: process.env.PORT || 5000, 
+    host: process.env.HOST || '0.0.0.0', // Wajib 0.0.0.0 biar bisa diakses Vercel
     routes: {
       cors: {
-        origin: ['*'], 
+        origin: ['*'], // Membolehkan semua tamu (termasuk Vercel)
+        headers: ['Accept', 'Authorization', 'Content-Type', 'If-None-Match'], // Header standar
         additionalHeaders: ['cache-control', 'x-requested-with']
       },
     },
   });
+
+  // ... (bagian bawahnya biarkan sama)
+  await server.register([ ...
 
   // Pastikan folder src/api/users dan src/api/leads ada dan memiliki index.js
   await server.register([
@@ -35,3 +42,4 @@ process.on('unhandledRejection', (err) => {
 
 
 init();
+
