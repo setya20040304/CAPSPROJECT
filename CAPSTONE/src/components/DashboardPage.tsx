@@ -20,7 +20,7 @@ interface DashboardPageProps {
   onNavigateToSales?: () => void;
 }
 
-const API_URL = 'https://capsproject-production.up.railway.app';
+const API_URL = 'https://capsproject-production.up.railway.app/api';
 const PAGE_SIZE = 20;
 
 export function DashboardPage({ 
