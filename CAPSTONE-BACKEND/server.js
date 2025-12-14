@@ -7,8 +7,8 @@ const Hapi = require('@hapi/hapi');
 const init = async () => {
   const server = Hapi.server({
     // GANTI JADI INI (PENTING!):
-    port: process.env.PORT || 5000, 
-    host: process.env.HOST || '0.0.0.0', // Wajib 0.0.0.0 biar bisa diakses Vercel
+    port:  5000, 
+    host: '0.0.0.0', // Wajib 0.0.0.0 biar bisa diakses Vercel
     routes: {
       cors: {
         origin: ['*'], // Membolehkan semua tamu (termasuk Vercel)
@@ -42,4 +42,5 @@ process.on('unhandledRejection', (err) => {
 
 
 init();
+
 
